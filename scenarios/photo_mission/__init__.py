@@ -1,0 +1,1 @@
+"""Webots photo mission scenario."""

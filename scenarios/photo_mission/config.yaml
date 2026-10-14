@@ -1,0 +1,26 @@
+scenario: scenarios.photo_mission
+
+agent:
+  namespaces: ""
+  behavior_tree_xml: "default_bt.xml"
+
+photo_mission:
+  goal_topic: "/bt/goal_pose"
+  navigation_action: "/navigate_to_pose"
+  capture_service: "/capture_image"
+  global_frame: "map"
+  base_frame: "base_link"
+  use_sim_time: true
+  pose_wait_timeout: 30.0
+  server_wait_timeout: 10.0
+  navigation_timeout: 180.0
+  capture_timeout: 10.0
+
+bt_runner:
+  bt_tick_rate: 10.0
+  bt_visualiser:
+    enabled: false
+    screen_width: 1000
+    screen_height: 800
+    direction: Horizontal
+  profiling_mode: false

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+  <BehaviorTree ID="PhotoMission">
+    <Sequence>
+      <WaitForGoal/>
+      <SaveInitialPose/>
+      <Fallback>
+        <IsGoalReached/>
+        <Sequence>
+          <HasInitialPose/>
+          <MoveToGoal/>
+        </Sequence>
+      </Fallback>
+      <Fallback>
+        <IsImageCaptured/>
+        <Sequence>
+          <IsGoalReached/>
+          <CaptureImage/>
+        </Sequence>
+      </Fallback>
+      <Fallback>
+        <IsReturned/>
+        <Sequence>
+          <IsImageCaptured/>
+          <Return/>
+        </Sequence>
+      </Fallback>
+      <FinishMission/>
+    </Sequence>
+  </BehaviorTree>
+
+  <TreeNodesModel>
+    <Condition ID="WaitForGoal" editable="true"/>
+    <Condition ID="HasInitialPose" editable="true"/>
+    <Condition ID="IsGoalReached" editable="true"/>
+    <Condition ID="IsImageCaptured" editable="true"/>
+    <Condition ID="IsReturned" editable="true"/>
+    <Action ID="SaveInitialPose" editable="true"/>
+    <Action ID="MoveToGoal" editable="true"/>
+    <Action ID="CaptureImage" editable="true"/>
+    <Action ID="Return" editable="true"/>
+    <Action ID="FinishMission" editable="true"/>
+  </TreeNodesModel>
+</root>
